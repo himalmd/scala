@@ -11,7 +11,7 @@ object PriceCalculator{
   def discountedPrice() : Double = 
   {
     var price:Double = 24.95
-    var discountAmount:Double = 0.4
+    var discountAmount:Double = 0.6
     var discount:Double = 0.0;
     
     discount = price * discountAmount
@@ -30,6 +30,7 @@ object PriceCalculator{
       
     }else{
       tot = 150 + ((books-50) * 0.75) + (books1 * discountedPrice())
+      tot = BigDecimal(tot).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
     }
     
     return tot;
